@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
+import { CalendarHeart } from "lucide-react";
 
 const concernOptions = [
-  "Relationship Issues", "Anxiety", "Self Esteem", "Stress", 
-  "Emotional Regulation", "Trauma", "Childhood Issues", 
-  "Overthinking", "Validation Issues", "Low Motivation", 
+  "Relationship Issues", "Anxiety", "Self Esteem", "Stress",
+  "Emotional Regulation", "Trauma", "Childhood Issues",
+  "Overthinking", "Validation Issues", "Low Motivation",
   "Sleep Issues", "Other"
 ];
 
@@ -45,15 +46,19 @@ export default function BookingForm() {
     <section id="booking" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
-          
+
           <div className="w-full md:w-5/12 bg-primary text-white p-10 flex flex-col justify-between">
             <div>
               <h2 className="text-3xl font-serif font-bold mb-4">Book a Session</h2>
-              <p className="text-primary-light text-[#d8c8af] mb-8">
+              <p className="text-[#e6dac3] mb-8">
                 Take the first step towards healing and understanding. Fill out the form, and I will get back to you to confirm our appointment.
               </p>
             </div>
-            
+
+            <div className="flex-1 flex items-center justify-center py-8 opacity-80">
+              <CalendarHeart size={120} strokeWidth={1} className="text-[#e6dac3]" />
+            </div>
+
             <div className="space-y-4 text-sm text-[#e6dac3]">
               <p>Sessions are strictly confidential.</p>
               <p>Initial consultations focus on understanding your needs and exploring therapeutic fit.</p>
@@ -75,7 +80,7 @@ export default function BookingForm() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-gray-700">Full Name</label>
-                    <input required type="text" name="name" id="name" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Jane Doe" />
+                    <input required minLength={2} maxLength={50} type="text" name="name" id="name" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Jane Doe" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-gray-700">Email Address</label>
@@ -86,7 +91,7 @@ export default function BookingForm() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone Number</label>
-                    <input required type="tel" name="phone" id="phone" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="+91 98765 43210" />
+                    <input required minLength={10} maxLength={15} pattern="[0-9+\-\s()]+" title="Please enter a valid phone number" type="tel" name="phone" id="phone" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="+91 98765 43210" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="concern" className="text-sm font-medium text-gray-700">Primary Concern</label>
