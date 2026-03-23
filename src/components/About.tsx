@@ -35,7 +35,7 @@ export default function About() {
                 Hi, I am <strong>Aradhana Baghare</strong>, a Counselling Psychologist based in Madhya Pradesh, India. I hold an M.A. in Counselling Psychology and specialize in a CBT-informed, integrative therapeutic approach.
               </p>
               <p>
-                My practice focuses on providing a safe, empathetic environment where clients can explore their emotions, regulate their experiences, and foster meaningful personal growth. I integrate <em>Cognitive Behaviour Therapy (CBT)</em> alongside expressive arts, play-based, and movement-oriented interventions.
+                My practice focuses on providing a safe, empathetic environment where clients can explore their emotions, regulate their experiences, and foster meaningful personal wellness. I specialize in helping individuals navigate <strong>anxiety, stress, trauma, relationship challenges, and low self-esteem</strong>. I integrate <em>Cognitive Behaviour Therapy (CBT)</em> alongside expressive arts, play-based, and movement-oriented interventions.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 mt-8 p-6 bg-background rounded-2xl border border-secondary/50 shadow-sm">
