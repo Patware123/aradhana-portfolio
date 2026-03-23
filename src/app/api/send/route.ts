@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
 // Provide a dummy key if env var is missing during build
-const resend = new Resend(process.env.RESEND_API_KEY || 're_D71Hh2tp_PqVQV6r7RRH4NFmHS3aYJFtg');
+const resend = new Resend(process.env.RESEND_API_KEY || 're_TK9DokM3_6e3yYhLwsRJmoNxYBgsZ7USV');
 
 export async function POST(request: Request) {
   try {

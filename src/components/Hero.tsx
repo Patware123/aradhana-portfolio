@@ -20,11 +20,12 @@ export default function Hero() {
         </h1>
 
         <p className="text-xl md:text-2xl text-primary-light mb-10 max-w-2xl mx-auto font-light">
-          A safe space to understand yourself and heal.
+          A safe, non-judgmental space to understand yourself, process your emotions, and start feeling lighter - one step closer to self. <br />
+          Click "Book a Session" to begin.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <a href="#booking">
+          <a href="https://forms.gle/CQuhR5HLTfNNkf2aA" target='_blank'>
             <Button variant="primary" className="w-full sm:w-auto text-lg px-8 py-4">
               Book a Session
             </Button>
