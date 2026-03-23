@@ -25,7 +25,7 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <a href="https://forms.gle/CQuhR5HLTfNNkf2aA" target='_blank'>
+          <a href="#booking">
             <Button variant="primary" className="w-full sm:w-auto text-lg px-8 py-4">
               Book a Session
             </Button>

@@ -7,6 +7,7 @@ import About from '@/components/About';
 import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
 import BookingForm from '@/components/BookingForm';
+import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 function Section({ children }: { children: React.ReactNode }) {
@@ -34,12 +35,15 @@ export default function Home() {
       <Section>
         <Services />
       </Section>
-      <Section>
-        <Testimonials />
-      </Section>
       {/* <Section>
-        <BookingForm />
+        <Testimonials />
       </Section> */}
+      <Section>
+        <BookingForm />
+      </Section>
+      <Section>
+        <Contact />
+      </Section>
       <Footer />
     </main>
   );
