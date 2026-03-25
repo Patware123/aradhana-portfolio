@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
+import { BookingProvider } from "@/context/BookingContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,7 +29,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} antialiased bg-background text-foreground selection:bg-primary-light selection:text-white`}
       >
-        {children}
+        <BookingProvider>
+          {children}
+          <Toaster position="bottom-center" toastOptions={{ duration: 4000 }} />
+        </BookingProvider>
       </body>
     </html>
   );
