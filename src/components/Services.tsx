@@ -1,8 +1,11 @@
+'use client';
+
 import { 
   Heart, BrainCircuit, ShieldAlert, Sparkles, 
   Wind, Activity, Compass, Lightbulb, MessageSquareQuote, 
   BatteryCharging, Moon, UserMinus, HelpCircle, Baby
 } from "lucide-react";
+import { useBooking } from "@/context/BookingContext";
 
 const services = [
   { icon: Heart, title: "Relationship Issues", desc: "Navigate conflicts and build healthier connections." },
@@ -22,6 +25,8 @@ const services = [
 ];
 
 export default function Services() {
+  const { openBooking } = useBooking();
+
   return (
     <section id="services" className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -43,7 +48,7 @@ export default function Services() {
               <div className="text-gray-500 mb-6 font-medium text-sm">45 mins</div>
               <p className="text-gray-600 mb-8 flex-grow">Brief consultation. Ideal for initial assessment, general counseling, and exploring therapeutic fit.</p>
               <div className="mt-auto">
-                <a href="#booking-basic" className="block text-center w-full py-4 px-6 rounded-full bg-secondary/20 text-primary font-semibold hover:bg-secondary/40 transition-colors duration-300">Book Basic</a>
+                <button onClick={() => openBooking('Basic Session (₹500)')} className="block text-center w-full py-4 px-6 rounded-full bg-secondary/20 text-primary font-semibold hover:bg-secondary/40 transition-colors duration-300">Book Basic</button>
               </div>
             </div>
             
@@ -54,7 +59,7 @@ export default function Services() {
               <div className="text-gray-500 mb-6 font-medium text-sm">60 mins</div>
               <p className="text-gray-600 mb-8 flex-grow">Deep dive session. Focused on emotional processing, cognitive shifts, therapies, and customized interventions.</p>
               <div className="mt-auto">
-                <a href="#booking-standard" className="block text-center w-full py-4 px-6 rounded-full bg-primary text-white font-semibold hover:bg-primary-light transition-colors duration-300 shadow-md">Book Standard</a>
+                <button onClick={() => openBooking('Standard Session (₹800)')} className="block text-center w-full py-4 px-6 rounded-full bg-primary text-white font-semibold hover:bg-primary-light transition-colors duration-300 shadow-md">Book Standard</button>
               </div>
             </div>
           </div>

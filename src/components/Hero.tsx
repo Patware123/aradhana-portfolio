@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from "./ui/button";
 
 export default function Hero() {
@@ -24,16 +26,12 @@ export default function Hero() {
           Click "Book a Session" to begin.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4">
-          <a href="#booking">
-            <Button variant="primary" className="w-full sm:w-auto text-lg px-8 py-4">
-              Book a Session
-            </Button>
-          </a>
-          <a href="#about">
-            <Button variant="outline" className="w-full sm:w-auto text-lg px-8 py-4">
-              Learn More
-            </Button>
+        <div className="flex flex-col md:flex-row justify-center items-center">
+          <button onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })} className="inline-block bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary-light transition-colors duration-300 shadow-lg hover:shadow-xl mr-0 md:mr-4 mb-4 md:mb-0 w-full md:w-auto">
+            Book a Session
+          </button>
+          <a href="#about" className="inline-block bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-secondary/20 transition-colors duration-300 border border-primary/20 w-full md:w-auto text-center">
+            Learn More
           </a>
         </div>
       </div>

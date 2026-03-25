@@ -38,9 +38,7 @@ export default function Home() {
       {/* <Section>
         <Testimonials />
       </Section> */}
-      <Section>
-        <BookingForm />
-      </Section>
+      <BookingForm />
       <Section>
         <Contact />
       </Section>
