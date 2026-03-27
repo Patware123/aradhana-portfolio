@@ -1,22 +1,15 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'psychsarthi22@gmail.com',
-    pass: 'rlhnhkfgqgjorlkd',
-  },
-});
+import { Resend } from 'resend';
 
 export async function POST(request: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY || 're_TK9DokM3_6e3yYhLwsRJmoNxYBgsZ7USV');
     const data = await request.json();
     const { name, email, phone, concern, date, time, message } = data;
 
-    const emailResponse = await transporter.sendMail({
-      from: 'Portfolio Contact <psychsarthi22@gmail.com>',
-      to: 'baghare123@gmail.com', // Aradhana's email
+    const emailResponse = await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>',
+      to: 'baghare123@gmail.com',
       subject: `New Therapy Session Request from ${name}`,
       html: `
         <h2>New Session Request Details</h2>
@@ -32,7 +25,12 @@ export async function POST(request: Request) {
       `,
     });
 
-    return NextResponse.json({ success: true, data: emailResponse });
+    if (emailResponse.error) {
+      console.error('Resend Error:', emailResponse.error);
+      return NextResponse.json({ error: emailResponse.error }, { status: 400 });
+    }
+
+    return NextResponse.json({ success: true, data: emailResponse.data });
   } catch (error) {
     console.error('API Route Error:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });

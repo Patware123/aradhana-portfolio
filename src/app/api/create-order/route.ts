@@ -1,11 +1,6 @@
 import { NextResponse } from 'next/server';
 import Razorpay from 'razorpay';
 
-const razorpay = new Razorpay({
-  key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID as string,
-  key_secret: process.env.RAZORPAY_SECRET as string,
-});
-
 // Server-side pricing source of truth
 const PLAN_PRICING: Record<string, number> = {
   'Basic Session (₹500)': 500,
@@ -14,6 +9,10 @@ const PLAN_PRICING: Record<string, number> = {
 
 export async function POST(request: Request) {
   try {
+    const razorpay = new Razorpay({
+      key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID as string,
+      key_secret: process.env.RAZORPAY_SECRET as string,
+    });
     const { plan } = await request.json();
 
     if (!plan || !PLAN_PRICING[plan]) {
