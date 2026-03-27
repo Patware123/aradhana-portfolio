@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import Razorpay from 'razorpay';
 
 const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_SUm09M7iNYMHNr',
-  key_secret: process.env.RAZORPAY_SECRET || 'WMPNTtGtPd95Ytzzr61YgEex',
+  key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID as string,
+  key_secret: process.env.RAZORPAY_SECRET as string,
 });
 
 // Server-side pricing source of truth

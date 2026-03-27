@@ -1,9 +1,16 @@
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
-const resend = new Resend(process.env.RESEND_API_KEY || 're_TK9DokM3_6e3yYhLwsRJmoNxYBgsZ7USV');
-const RAZORPAY_SECRET = process.env.RAZORPAY_SECRET || 'WMPNTtGtPd95Ytzzr61YgEex';
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'psychsarthi22@gmail.com',
+    pass: 'rlhnhkfgqgjorlkd',
+  },
+});
+
+const RAZORPAY_SECRET = process.env.RAZORPAY_SECRET as string;
 const THERAPIST_EMAIL = 'baghare123@gmail.com';
 
 export async function POST(request: Request) {
@@ -36,8 +43,8 @@ export async function POST(request: Request) {
     // 2. Email Confirmation
     try {
       // Email to Client
-      await resend.emails.send({
-        from: 'Aradhana Therapy <onboarding@resend.dev>', // Should be a verified domain in prod
+      await transporter.sendMail({
+        from: 'Aradhana Therapy <psychsarthi22@gmail.com>',
         to: bookingDetails.email,
         subject: 'Session Confirmed - Aradhana Baghare',
         html: `
@@ -62,8 +69,8 @@ export async function POST(request: Request) {
       });
 
       // Email to Therapist
-      await resend.emails.send({
-        from: 'System Notification <onboarding@resend.dev>',
+      await transporter.sendMail({
+        from: 'System Notification <psychsarthi22@gmail.com>',
         to: THERAPIST_EMAIL,
         subject: `New Booking Confirmed: ${bookingDetails.name}`,
         html: `
