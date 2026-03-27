@@ -1,24 +1,15 @@
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
-import nodemailer from 'nodemailer';
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'psychsarthi22@gmail.com',
-    pass: 'rlhnhkfgqgjorlkd',
-  },
-});
-
-const RAZORPAY_SECRET = process.env.RAZORPAY_SECRET as string;
-const THERAPIST_EMAIL = 'baghare123@gmail.com';
+import { Resend } from 'resend';
 
 export async function POST(request: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY as string);
+    const RAZORPAY_SECRET = process.env.RAZORPAY_SECRET as string;
     const data = await request.json();
-    const { 
-      razorpay_payment_id, 
-      razorpay_order_id, 
+    const {
+      razorpay_payment_id,
+      razorpay_order_id,
       razorpay_signature,
       bookingDetails
     } = data;
@@ -42,10 +33,10 @@ export async function POST(request: Request) {
 
     // 2. Email Confirmation
     try {
-      // Email to Client
-      await transporter.sendMail({
-        from: 'Aradhana Therapy <psychsarthi22@gmail.com>',
-        to: bookingDetails.email,
+      // Single Combined Email Event
+      await resend.emails.send({
+        from: 'Aradhana Therapy <onboarding@resend.dev>',
+        to: 'baghare123@gmail.com',
         subject: 'Session Confirmed - Aradhana Baghare',
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
@@ -59,6 +50,7 @@ export async function POST(request: Request) {
               <p><strong>Plan:</strong> ${bookingDetails.plan}</p>
               <p><strong>Therapist:</strong> Aradhana Baghare</p>
               <p><strong>Google Meet Link:</strong> <a href="https://meet.google.com/qfq-cyha-tok">https://meet.google.com/qfq-cyha-tok</a></p>
+              <p><strong>Payment ID:</strong> ${razorpay_payment_id}</p>
             </div>
             
             <p>If you need to reschedule or have questions before the session, please hit reply to this email.</p>
@@ -68,35 +60,15 @@ export async function POST(request: Request) {
         `
       });
 
-      // Email to Therapist
-      await transporter.sendMail({
-        from: 'System Notification <psychsarthi22@gmail.com>',
-        to: THERAPIST_EMAIL,
-        subject: `New Booking Confirmed: ${bookingDetails.name}`,
-        html: `
-          <h2>New Session Booking</h2>
-          <p><strong>Client:</strong> ${bookingDetails.name}</p>
-          <p><strong>Email:</strong> ${bookingDetails.email}</p>
-          <p><strong>Phone:</strong> ${bookingDetails.phone}</p>
-          <p><strong>Plan:</strong> ${bookingDetails.plan}</p>
-          <p><strong>Date:</strong> ${bookingDetails.date}</p>
-          <p><strong>Time:</strong> ${bookingDetails.time}</p>
-          <p><strong>Concerns:</strong> ${bookingDetails.concern || 'Not specified'}</p>
-          <p><strong>Message:</strong> ${bookingDetails.message || 'None'}</p>
-          <p><strong>Payment ID:</strong> ${razorpay_payment_id}</p>
-          <p><strong>Google Meet Link:</strong> <a href="https://meet.google.com/qfq-cyha-tok">https://meet.google.com/qfq-cyha-tok</a></p>
-        `
-      });
-
       verificationResult.emailSent = true;
     } catch (emailError: any) {
       console.error('Email Error:', emailError);
       verificationResult.issues.push("Failed to trigger confirmation email");
     }
 
-    return NextResponse.json({ 
-      success: true, 
-      result: verificationResult 
+    return NextResponse.json({
+      success: true,
+      result: verificationResult
     });
 
   } catch (error) {
