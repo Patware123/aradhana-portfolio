@@ -13,7 +13,7 @@ export async function POST(request: Request) {
       key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID as string,
       key_secret: process.env.RAZORPAY_SECRET as string,
     });
-    const { plan } = await request.json();
+    const { plan, name, email, phone, date, time } = await request.json();
 
     if (!plan || !PLAN_PRICING[plan]) {
       return NextResponse.json({ error: 'Invalid plan selected' }, { status: 400 });
@@ -26,6 +26,13 @@ export async function POST(request: Request) {
       amount: amountInPaise,
       currency: 'INR',
       receipt: `receipt_${Date.now()}`,
+      notes: {
+        customer_name: name || 'N/A',
+        email: email || 'N/A',
+        phone: phone || 'N/A',
+        session_plan: plan,
+        appointment: `${date || 'N/A'} - ${time || 'N/A'}`
+      }
     };
 
     const order = await razorpay.orders.create(options);

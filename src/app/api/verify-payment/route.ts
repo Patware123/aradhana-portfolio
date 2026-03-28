@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     // 2. Email Confirmation
     try {
       // Single Combined Email Event
-      await resend.emails.send({
+      const emailResponse = await resend.emails.send({
         from: 'Aradhana Therapy <onboarding@resend.dev>',
         to: 'baghare123@gmail.com',
         subject: 'Session Confirmed - Aradhana Baghare',
@@ -59,6 +59,10 @@ export async function POST(request: Request) {
           </div>
         `
       });
+
+      if (emailResponse.error) {
+        throw emailResponse.error;
+      }
 
       verificationResult.emailSent = true;
     } catch (emailError: any) {

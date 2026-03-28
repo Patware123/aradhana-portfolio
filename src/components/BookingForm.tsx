@@ -74,7 +74,14 @@ export default function BookingForm() {
       const orderRes = await fetch("/api/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan: bookingData.plan }),
+        body: JSON.stringify({ 
+          plan: bookingData.plan,
+          name: bookingData.name,
+          email: bookingData.email,
+          phone: bookingData.phone,
+          date: bookingData.date,
+          time: bookingData.time
+        }),
       });
 
       const orderData = await orderRes.json();
