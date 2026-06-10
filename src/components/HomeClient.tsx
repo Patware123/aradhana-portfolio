@@ -1,11 +1,10 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+import React from 'react';
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Services from '@/components/Services';
-import Testimonials from '@/components/Testimonials';
 import BookingForm from '@/components/BookingForm';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -23,9 +22,9 @@ function Section({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function Home() {
+export default function HomeClient() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background relative">
       <Section>
         <Hero />
       </Section>
@@ -35,9 +34,6 @@ export default function Home() {
       <Section>
         <Services />
       </Section>
-      {/* <Section>
-        <Testimonials />
-      </Section> */}
       <BookingForm />
       <Section>
         <Contact />

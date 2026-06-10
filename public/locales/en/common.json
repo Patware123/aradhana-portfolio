@@ -1,0 +1,28 @@
+{
+  "brand": "Aradhana Baghare",
+  "tagline": "Counselling Psychologist & Expressive Arts Facilitator",
+  "nav": {
+    "about": "About Me",
+    "services": "Therapy Services",
+    "booking": "Book a Session",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "refund": "Refund & Cancellation"
+  },
+  "buttons": {
+    "bookSession": "Book a Session",
+    "learnMore": "Learn More",
+    "backToHome": "Back to Home",
+    "returnToSite": "Return to Site"
+  },
+  "footer": {
+    "desc": "Counselling Psychologist & Expressive Arts Facilitator. Providing a safe, integrative approach to mental wellness.",
+    "quickLinks": "Quick Links",
+    "legal": "Legal",
+    "contact": "Contact",
+    "location": "Madhya Pradesh, India",
+    "rights": "© {{year}} Aradhana Baghare. All rights reserved.",
+    "sub": "Therapy & Counselling Portfolio"
+  }
+}

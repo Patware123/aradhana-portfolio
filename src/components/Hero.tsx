@@ -1,8 +1,11 @@
 'use client';
 
+import { useTranslation } from 'react-i18next';
 import { Button } from "./ui/button";
 
 export default function Hero() {
+  const { t } = useTranslation(['home', 'common']);
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-background">
       {/* Decorative background elements */}
@@ -14,24 +17,23 @@ export default function Hero() {
 
       <div className="container mx-auto px-6 relative z-10 text-center flex flex-col items-center">
         <span className="text-accent uppercase tracking-widest text-sm font-semibold mb-6 block">
-          Counselling Psychologist
+          {t('hero.subtitle')}
         </span>
 
         <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight max-w-4xl mx-auto">
-          Aradhana Baghare
+          {t('hero.title')}
         </h1>
 
         <p className="text-xl md:text-2xl text-primary-light mb-10 max-w-2xl mx-auto font-light">
-          A safe, non-judgmental space to understand yourself, process your emotions, and start feeling lighter - one step closer to self. <br />
-          Click "Book a Session" to begin.
+          {t('hero.desc')}
         </p>
 
         <div className="flex flex-col md:flex-row justify-center items-center">
           <button onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })} className="inline-block bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary-light transition-colors duration-300 shadow-lg hover:shadow-xl mr-0 md:mr-4 mb-4 md:mb-0 w-full md:w-auto">
-            Book a Session
+            {t('buttons.bookSession', { ns: 'common' })}
           </button>
           <a href="#about" className="inline-block bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-secondary/20 transition-colors duration-300 border border-primary/20 w-full md:w-auto text-center">
-            Learn More
+            {t('buttons.learnMore', { ns: 'common' })}
           </a>
         </div>
       </div>

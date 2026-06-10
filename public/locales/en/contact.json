@@ -1,0 +1,24 @@
+{
+  "subtitle": "Get In Touch",
+  "title": "Contact Me",
+  "desc": "Have questions about sessions or need more information? I'm here to help.",
+  "detailsTitle": "Contact Details",
+  "emailLabel": "Email Address",
+  "phoneLabel": "Phone Number",
+  "phoneValue": "Available upon request",
+  "securityTitle": "100% Secure & Confidential",
+  "securityDesc": "All correspondence and session details are strictly confidential. We use trusted and secure payment gateways (Razorpay) for all transactions to ensure your information is safe.",
+  "formTitle": "Send a Message",
+  "form": {
+    "nameLabel": "Name",
+    "emailLabel": "Email Address",
+    "phoneLabel": "Phone Number (Optional)",
+    "messageLabel": "Message",
+    "btnSend": "Send Message",
+    "btnSending": "Sending...",
+    "successTitle": "Message Sent",
+    "successDesc": "Thank you for reaching out. I'll get back to you as soon as possible.",
+    "btnSendAnother": "Send Another Message",
+    "errorMsg": "Something went wrong. Please try again."
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "title": "Book a Session",
+  "desc": "Take the first step towards healing and understanding.",
+  "steps": {
+    "details": "Your Details",
+    "payment": "Payment",
+    "confirmation": "Confirmation"
+  },
+  "confidentiality": "Sessions are strictly confidential.",
+  "secure": "Transactions are processed securely.",
+  "form": {
+    "planLabel": "Selected Session Plan",
+    "planSelectPlaceholder": "Select a plan",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Your Name",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "your@email.com",
+    "phoneLabel": "Phone Number (10 digits)",
+    "phonePlaceholder": "9876543210",
+    "dateLabel": "Preferred Date",
+    "timeLabel": "Preferred Time",
+    "concernLabel": "Primary Concern(s)",
+    "concernSublabel": "Select up to 3",
+    "messageLabel": "Additional Message (Optional)",
+    "messagePlaceholder": "Is there anything specific you'd like me to know beforehand?",
+    "btnContinue": "Continue to Payment"
+  },
+  "paymentStep": {
+    "back": "Back to details",
+    "title": "Order Summary",
+    "plan": "Plan selected",
+    "dateTime": "Date & Time",
+    "name": "Name",
+    "warning": "You will be redirected to Razorpay to complete the transaction securely. Sessions are strictly non-refundable.",
+    "btnPay": "Pay Now to Confirm Booking",
+    "processing": "Processing Transaction...",
+    "gatewayInit": "Initializing payment gateway...",
+    "gatewayFailed": "Failed to load Razorpay SDK. Check your connection.",
+    "waitingPayment": "Waiting for payment completion...",
+    "verifying": "Payment successful! Processing booking verification...",
+    "verifyingError": "Payment verified, but there was an issue with automatic booking. Don't worry, your slot is safe."
+  },
+  "confirmStep": {
+    "title": "Booking Confirmed!",
+    "successMessage": "Thank you, {{name}}. Your payment was successful and your session slot has been reserved.",
+    "receiptTitle": "Receipt Details",
+    "date": "Scheduled Date",
+    "time": "Time Slot",
+    "note": "Note:",
+    "issues": "Some secondary services had issues, but your payment and slot are confirmed.",
+    "returnBtn": "Return to Site"
+  }
+}
