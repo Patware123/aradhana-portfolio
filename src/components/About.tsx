@@ -1,6 +1,14 @@
+'use client';
+
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export default function About() {
+  const { t } = useTranslation(['home']);
+
+  const approachList = t('about.approachList', { returnObjects: true }) as string[];
+  const experienceList = t('about.experienceList', { returnObjects: true }) as string[];
+
   return (
     <section id="about" className="py-24 bg-white">
       <div className="container mx-auto px-6">
@@ -23,37 +31,36 @@ export default function About() {
           <div className="w-full md:w-7/12 space-y-8">
             <div>
               <span className="text-accent uppercase tracking-widest text-sm font-semibold mb-2 block">
-                About Me
+                {t('about.subtitle')}
               </span>
               <h2 className="text-4xl font-serif text-foreground font-bold">
-                Navigating the Journey Together
+                {t('about.title')}
               </h2>
             </div>
 
             <div className="prose prose-lg text-gray-700 max-w-none space-y-4">
-              <p>
-                Hi, I am <strong>Aradhana Baghare</strong>, a Counselling Psychologist based in Madhya Pradesh, India. I hold an M.A. in Counselling Psychology and specialize in a CBT-informed, integrative therapeutic approach.
-              </p>
-              <p>
-                My practice focuses on providing a safe, empathetic environment where clients can explore their emotions, regulate their experiences, and foster meaningful personal wellness. I specialize in helping individuals navigate <strong>anxiety, stress, trauma, relationship challenges, and low self-esteem</strong>. I integrate <em>Cognitive Behaviour Therapy (CBT)</em> alongside expressive arts, play-based, and movement-oriented interventions.
-              </p>
+              <p dangerouslySetInnerHTML={{ __html: t('about.bio1') }} />
+              <p dangerouslySetInnerHTML={{ __html: t('about.bio2') }} />
 
               <div className="grid md:grid-cols-2 gap-6 mt-8 p-6 bg-background rounded-2xl border border-secondary/50 shadow-sm">
                 <div>
-                  <h3 className="font-serif text-xl font-bold text-primary mb-3">Therapeutic Approach</h3>
+                  <h3 className="font-serif text-xl font-bold text-primary mb-3">
+                    {t('about.approachTitle')}
+                  </h3>
                   <ul className="space-y-2 text-sm text-foreground/80 list-disc list-inside">
-                    <li>Cognitive Behaviour Therapy (CBT)</li>
-                    <li>Expressive arts & movement</li>
-                    <li>Play-based & sensory interventions</li>
-                    <li>Integrative, client-centred</li>
+                    {Array.isArray(approachList) && approachList.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
                   </ul>
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl font-bold text-primary mb-3">Experience</h3>
-                  <ul className="space-y-2 text-sm text-foreground/80">
-                    <li><strong>TARA Centre</strong> - Associate Psychologist</li>
-                    <li><strong>Tairas Mental Health</strong> - CBT Supervised Practice</li>
-                    <li><strong>UpLife</strong> - CBT Counselling Intern</li>
+                  <h3 className="font-serif text-xl font-bold text-primary mb-3">
+                    {t('about.experienceTitle')}
+                  </h3>
+                  <ul className="space-y-2 text-sm text-foreground/80 list-none pl-0">
+                    {Array.isArray(experienceList) && experienceList.map((item, index) => (
+                      <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
+                    ))}
                   </ul>
                 </div>
               </div>

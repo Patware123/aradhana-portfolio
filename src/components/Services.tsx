@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslation } from 'react-i18next';
 import { 
   Heart, BrainCircuit, ShieldAlert, Sparkles, 
   Wind, Activity, Compass, Lightbulb, MessageSquareQuote, 
@@ -8,58 +9,87 @@ import {
 import { useBooking } from "@/context/BookingContext";
 
 const services = [
-  { icon: Heart, title: "Relationship Issues", desc: "Navigate conflicts and build healthier connections." },
-  { icon: Sparkles, title: "Anxiety", desc: "Learn to manage worry and find your calm." },
-  { icon: ShieldAlert, title: "Self Esteem", desc: "Build confidence and embrace your self-worth." },
-  { icon: Wind, title: "Stress", desc: "Develop healthy coping mechanisms for daily pressures." },
-  { icon: Activity, title: "Emotional Regulation", desc: "Understand and manage intense emotions safely." },
-  { icon: BrainCircuit, title: "Trauma", desc: "Process past experiences in a supportive environment." },
-  { icon: Compass, title: "Self Exploration", desc: "Discover your true self and understand your needs deeply." },
-  { icon: Lightbulb, title: "Overthinking", desc: "Break cycles of rumination and find mental clarity." },
-  { icon: MessageSquareQuote, title: "Validation Issues", desc: "Learn to validate your own experiences and feelings." },
-  { icon: BatteryCharging, title: "Low Motivation", desc: "Rediscover your drive and sense of purpose." },
-  { icon: Moon, title: "Sleep Issues", desc: "Address the psychological factors affecting your rest." },
-  { icon: UserMinus, title: "Loneliness", desc: "Work through feelings of isolation and build meaningful connections." },
-  { icon: Baby, title: "Childhood Issues", desc: "Heal early wounds affecting your present life." },
-  { icon: HelpCircle, title: "Other Issues", desc: "A safe space for any other emotional or psychological challenges." },
+  { icon: Heart, key: "relationship" },
+  { icon: Sparkles, key: "anxiety" },
+  { icon: ShieldAlert, key: "selfEsteem" },
+  { icon: Wind, key: "stress" },
+  { icon: Activity, key: "regulation" },
+  { icon: BrainCircuit, key: "trauma" },
+  { icon: Compass, key: "exploration" },
+  { icon: Lightbulb, key: "overthinking" },
+  { icon: MessageSquareQuote, key: "validation" },
+  { icon: BatteryCharging, key: "motivation" },
+  { icon: Moon, key: "sleep" },
+  { icon: UserMinus, key: "loneliness" },
+  { icon: Baby, key: "childhood" },
+  { icon: HelpCircle, key: "other" },
 ];
 
 export default function Services() {
   const { openBooking } = useBooking();
+  const { t } = useTranslation(['home']);
 
   return (
     <section id="services" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-accent uppercase tracking-widest text-sm font-semibold mb-2 block">
-            Investment in Yourself
+            {t('services.subtitle')}
           </span>
           <h2 className="text-4xl font-serif text-foreground font-bold mb-4">
-            Session Plans
+            {t('services.title')}
           </h2>
           <p className="text-gray-600 mb-12">
-            Transparent pricing for your mental wellness journey. Secure your session today.
+            {t('services.desc')}
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left items-stretch">
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-secondary/50 relative overflow-hidden group hover:shadow-lg transition-all duration-300 flex flex-col">
-              <h3 className="text-2xl font-serif font-bold text-foreground mb-2">Basic Session</h3>
-              <div className="text-4xl font-bold text-primary mb-2">₹500</div>
-              <div className="text-gray-500 mb-6 font-medium text-sm">45 mins</div>
-              <p className="text-gray-600 mb-8 flex-grow">Brief consultation. Ideal for initial assessment, general counseling, and exploring therapeutic fit.</p>
+              <h3 className="text-2xl font-serif font-bold text-foreground mb-2">
+                {t('services.plans.basic.title')}
+              </h3>
+              <div className="text-4xl font-bold text-primary mb-2">
+                {t('services.plans.basic.price')}
+              </div>
+              <div className="text-gray-500 mb-6 font-medium text-sm">
+                {t('services.plans.basic.duration')}
+              </div>
+              <p className="text-gray-600 mb-8 flex-grow">
+                {t('services.plans.basic.desc')}
+              </p>
               <div className="mt-auto">
-                <button onClick={() => openBooking('Basic Session (₹500)')} className="block text-center w-full py-4 px-6 rounded-full bg-secondary/20 text-primary font-semibold hover:bg-secondary/40 transition-colors duration-300">Book Basic</button>
+                <button 
+                  onClick={() => openBooking(`Basic Session (${t('services.plans.basic.price')})`)} 
+                  className="block text-center w-full py-4 px-6 rounded-full bg-secondary/20 text-primary font-semibold hover:bg-secondary/40 transition-colors duration-300 cursor-pointer"
+                >
+                  {t('services.plans.basic.btn')}
+                </button>
               </div>
             </div>
             
             <div className="bg-white p-8 rounded-3xl shadow-lg border-2 border-primary relative overflow-hidden group hover:shadow-xl transition-all duration-300 md:-translate-y-2 flex flex-col">
-              <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-bl-lg">RECOMMENDED</div>
-              <h3 className="text-2xl font-serif font-bold text-foreground mb-2">Standard Session</h3>
-              <div className="text-4xl font-bold text-primary mb-2">₹800</div>
-              <div className="text-gray-500 mb-6 font-medium text-sm">60 mins</div>
-              <p className="text-gray-600 mb-8 flex-grow">Deep dive session. Focused on emotional processing, cognitive shifts, therapies, and customized interventions.</p>
+              <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-bl-lg">
+                {t('services.plans.standard.tag')}
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-foreground mb-2">
+                {t('services.plans.standard.title')}
+              </h3>
+              <div className="text-4xl font-bold text-primary mb-2">
+                {t('services.plans.standard.price')}
+              </div>
+              <div className="text-gray-500 mb-6 font-medium text-sm">
+                {t('services.plans.standard.duration')}
+              </div>
+              <p className="text-gray-600 mb-8 flex-grow">
+                {t('services.plans.standard.desc')}
+              </p>
               <div className="mt-auto">
-                <button onClick={() => openBooking('Standard Session (₹800)')} className="block text-center w-full py-4 px-6 rounded-full bg-primary text-white font-semibold hover:bg-primary-light transition-colors duration-300 shadow-md">Book Standard</button>
+                <button 
+                  onClick={() => openBooking(`Standard Session (${t('services.plans.standard.price')})`)} 
+                  className="block text-center w-full py-4 px-6 rounded-full bg-primary text-white font-semibold hover:bg-primary-light transition-colors duration-300 shadow-md cursor-pointer"
+                >
+                  {t('services.plans.standard.btn')}
+                </button>
               </div>
             </div>
           </div>
@@ -67,13 +97,13 @@ export default function Services() {
 
         <div className="text-center max-w-2xl mx-auto mb-16 mt-24">
           <span className="text-accent uppercase tracking-widest text-sm font-semibold mb-2 block">
-            Areas of Focus
+            {t('services.focusSubtitle')}
           </span>
           <h2 className="text-3xl font-serif text-foreground font-bold mb-4">
-            How I Can Help
+            {t('services.focusTitle')}
           </h2>
           <p className="text-gray-600">
-            Providing a supportive space to explore, understand, and navigate life's challenges.
+            {t('services.focusDesc')}
           </p>
         </div>
 
@@ -87,10 +117,10 @@ export default function Services() {
                 <service.icon size={24} strokeWidth={1.5} />
               </div>
               <h3 className="text-xl font-bold font-serif text-foreground mb-2">
-                {service.title}
+                {t(`services.items.${service.key}.title` as any)}
               </h3>
               <p className="text-sm text-gray-600 leading-relaxed">
-                {service.desc}
+                {t(`services.items.${service.key}.desc` as any)}
               </p>
             </div>
           ))}

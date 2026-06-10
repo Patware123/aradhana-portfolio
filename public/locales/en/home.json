@@ -1,0 +1,109 @@
+{
+  "hero": {
+    "subtitle": "Counselling Psychologist",
+    "title": "Aradhana Baghare",
+    "desc": "A safe, non-judgmental space to understand yourself, process your emotions, and start feeling lighter - one step closer to self. Click \"Book a Session\" to begin."
+  },
+  "about": {
+    "subtitle": "About Me",
+    "title": "Navigating the Journey Together",
+    "bio1": "Hi, I am <strong>Aradhana Baghare</strong>, a Counselling Psychologist based in Madhya Pradesh, India. I hold an M.A. in Counselling Psychology and specialize in a CBT-informed, integrative therapeutic approach.",
+    "bio2": "My practice focuses on providing a safe, empathetic environment where clients can explore their emotions, regulate their experiences, and foster meaningful personal wellness. I specialize in helping individuals navigate <strong>anxiety, stress, trauma, relationship challenges, and low self-esteem</strong>. I integrate <em>Cognitive Behaviour Therapy (CBT)</em> alongside expressive arts, play-based, and movement-oriented interventions.",
+    "approachTitle": "Therapeutic Approach",
+    "approachList": [
+      "Cognitive Behaviour Therapy (CBT)",
+      "Expressive arts & movement",
+      "Play-based & sensory interventions",
+      "Integrative, client-centred"
+    ],
+    "experienceTitle": "Experience",
+    "experienceList": [
+      "<strong>TARA Centre</strong> - Associate Psychologist",
+      "<strong>Tairas Mental Health</strong> - CBT Supervised Practice",
+      "<strong>UpLife</strong> - CBT Counselling Intern"
+    ]
+  },
+  "services": {
+    "subtitle": "Investment in Yourself",
+    "title": "Session Plans",
+    "desc": "Transparent pricing for your mental wellness journey. Secure your session today.",
+    "focusSubtitle": "Areas of Focus",
+    "focusTitle": "How I Can Help",
+    "focusDesc": "Providing a supportive space to explore, understand, and navigate life's challenges.",
+    "plans": {
+      "basic": {
+        "title": "Basic Session",
+        "price": "₹500",
+        "duration": "45 mins",
+        "desc": "Brief consultation. Ideal for initial assessment, general counseling, and exploring therapeutic fit.",
+        "btn": "Book Basic"
+      },
+      "standard": {
+        "title": "Standard Session",
+        "price": "₹800",
+        "duration": "60 mins",
+        "desc": "Deep dive session. Focused on emotional processing, cognitive shifts, therapies, and customized interventions.",
+        "btn": "Book Standard",
+        "tag": "RECOMMENDED"
+      }
+    },
+    "items": {
+      "relationship": {
+        "title": "Relationship Issues",
+        "desc": "Navigate conflicts and build healthier connections."
+      },
+      "anxiety": {
+        "title": "Anxiety",
+        "desc": "Learn to manage worry and find your calm."
+      },
+      "selfEsteem": {
+        "title": "Self Esteem",
+        "desc": "Build confidence and embrace your self-worth."
+      },
+      "stress": {
+        "title": "Stress",
+        "desc": "Develop healthy coping mechanisms for daily pressures."
+      },
+      "regulation": {
+        "title": "Emotional Regulation",
+        "desc": "Understand and manage intense emotions safely."
+      },
+      "trauma": {
+        "title": "Trauma",
+        "desc": "Process past experiences in a supportive environment."
+      },
+      "exploration": {
+        "title": "Self Exploration",
+        "desc": "Discover your true self and understand your needs deeply."
+      },
+      "overthinking": {
+        "title": "Overthinking",
+        "desc": "Break cycles of rumination and find mental clarity."
+      },
+      "validation": {
+        "title": "Validation Issues",
+        "desc": "Learn to validate your own experiences and feelings."
+      },
+      "motivation": {
+        "title": "Low Motivation",
+        "desc": "Rediscover your drive and sense of purpose."
+      },
+      "sleep": {
+        "title": "Sleep Issues",
+        "desc": "Address the psychological factors affecting your rest."
+      },
+      "loneliness": {
+        "title": "Loneliness",
+        "desc": "Work through feelings of isolation and build meaningful connections."
+      },
+      "childhood": {
+        "title": "Childhood Issues",
+        "desc": "Heal early wounds affecting your present life."
+      },
+      "other": {
+        "title": "Other Issues",
+        "desc": "A safe space for any other emotional or psychological challenges."
+      }
+    }
+  }
+}
